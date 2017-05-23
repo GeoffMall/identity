@@ -13,7 +13,9 @@ export class SearchIdentityComponent implements OnInit {
   public search: any;
 
 
-  constructor(private identity: IdentityService, private mock: MockDataService) {}
+  constructor(private identity: IdentityService,
+              private mock: MockDataService,
+  ) {}
 
   ngOnInit() {
     this.identity.getIdentities().subscribe(
@@ -45,5 +47,11 @@ export class SearchIdentityComponent implements OnInit {
     }
     return aggregateInput.toLowerCase().indexOf(searchString.toLowerCase()) != -1;
   }
+
+  public goToIpfsLink(pgpIpfsHash: string): void {
+    let url = "http://ipfs.io/ipfs/" + pgpIpfsHash;
+    window.location.href = url;
+  }
+
 
 }

@@ -11,6 +11,7 @@ import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
 import {MaterialModule} from "./material/material.module";
 
 
+
 @NgModule({
   imports: [
     CommonModule,
@@ -19,7 +20,7 @@ import {MaterialModule} from "./material/material.module";
     CoreModule,
     SharedModule,
     BrowserAnimationsModule,
-    MaterialModule
+    MaterialModule,
 
   ],
   declarations: [ AppComponent ],

@@ -10,4 +10,7 @@ export class AppComponent {
 
   constructor() { }
 
+  public goToLink(link: string): void {
+    window.location.href = link;
+  }
 }

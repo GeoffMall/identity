@@ -13,7 +13,7 @@
 
     <md-card-content>
 
-      <ng2-md-datatable selectable>
+      <ng2-md-datatable>
         <ng2-md-datatable-header>
           <ng2-md-datatable-column sortableValue="id">Id</ng2-md-datatable-column>
           <ng2-md-datatable-column sortableValue="email">Email</ng2-md-datatable-column>
@@ -21,23 +21,13 @@
           <ng2-md-datatable-column sortableValue="ethereumAddress">Eth Address</ng2-md-datatable-column>
         </ng2-md-datatable-header>
 
-
-        <tbody *ngIf="useMockData">
-          <ng2-md-datatable-row *ngFor="let identity of identities" [selectableValue]="identity.id"
-            [class.hidden]="!showListItem(search, identity.email, identity.pgpIpfsHash, identity.ethereumAddress)">
-            <td>{{identity.id}}</td>
-            <td appHighlightSearch [search]="search" classToApply="searched" [text]="identity.email"></td>
-            <td appHighlightSearch [search]="search" classToApply="searched" [text]="identity.pgpIpfsHash"></td>
-            <td appHighlightSearch [search]="search" classToApply="searched" [text]="identity.ethereumAddress"></td>
-          </ng2-md-datatable-row>
-        </tbody>
-
         <tbody *ngIf="!useMockData">
           <ng2-md-datatable-row *ngFor="let identity of identities" [selectableValue]="identity.id"
-            [class.hidden]="!showListItem(search, identity.email, identity.pgpIpfsHash, identity.ethereumAddress)">
+            [class.hidden]="!showListItem(search, identity.email, identity.pgpIpfsHash, identity.ethereumAddress)"
+            (click)="goToIpfsLink(identity.pgpIpfsHash)">
             <td>{{identity.id}}</td>
             <td appHighlightSearch [search]="search" classToApply="searched" [text]="identity.email"></td>
-            <td appHighlightSearch [search]="search" classToApply="searched" [text]="identity.pgpIpfsHash"></td>
+            <td appHighlightSearch [search]="search" classToApply="searched" [text]="identity.pgpIpfsHash" style="color:blue" class="pointer"></td>
             <td appHighlightSearch [search]="search" classToApply="searched" [text]="identity.ethereumAddress"></td>
           </ng2-md-datatable-row>
         </tbody>

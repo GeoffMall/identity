@@ -9,10 +9,14 @@ export class AuthenticationService {
   public options : RequestOptions;
 
   constructor(private http: Http) {
-    this.host = "http://localhost:8082";
-    this.options = new RequestOptions();
-    this.options.headers = new Headers();
-
+    let url: Array<string> = window.location.href.split("/");
+    this.host = url[0] + "//" + url[2];
+    if(this.host.indexOf("http://localhost") != -1) {
+      this.host = "http://localhost:8082";
+      console.log("Found localhost as host, using cross origin requests");
+    } else {
+      this.host = "";
+    }
   }
 
   public get(url: string, options?: RequestOptionsArgs): Observable<Response> {
@@ -21,12 +25,12 @@ export class AuthenticationService {
       (response) => {
         return response.json();
       }).catch((error) => {
-        let errJson = error.json();
-        if (401 == errJson.status) {
-          console.log("Need to log out here");
-        }
-        return error;
-      });
+      let errJson = error.json();
+      if (401 == errJson.status) {
+        console.log("Need to log out here");
+      }
+      return error;
+    });
   }
 
   public post(url: string, body: any, options?: RequestOptionsArgs): Observable<Response> {
