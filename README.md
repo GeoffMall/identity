@@ -2,7 +2,7 @@
 
 Creates a 'fingerprint' for a user by linking their PGP key and Ethereum address.
 
-###[Live Demo](http://54.67.117.89/)
+[Live Demo](http://54.67.117.89/)
 
 
 `git clone https://github.com/GeoffMall/identity.git`
