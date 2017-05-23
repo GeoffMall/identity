@@ -1,0 +1,16 @@
+{
+  "mysql": {
+    "username": "root",
+    "password": "",
+    "endpoint": "127.0.0.1",
+    "database": "identity",
+    "port": "3306"
+  },
+  "email": {
+    "port": "587",
+    "endpoint": "smtp.google.com",
+    "username": "username",
+    "password": "password"
+  },
+  "debug": true
+}

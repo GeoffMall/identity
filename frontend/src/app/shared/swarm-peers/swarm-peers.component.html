@@ -1,0 +1,43 @@
+<md-card>
+  <md-card-header *ngIf="useMockData">
+    Your IPFS Swarm Peers (fake data)
+  </md-card-header>
+
+  <md-card-header *ngIf="!useMockData">
+    Your IPFS Swarm Peers
+  </md-card-header>
+
+  <md-card-content *ngIf="swarmPeers">
+    <md-list>
+    <md-list-item *ngFor="let swarm of swarmPeers, let i = index">
+        Peer address:
+      <button md-raised-button>
+        {{swarm.Addr}}/ipfs/{{swarm.Peer}}
+      </button>
+    </md-list-item>
+    </md-list>
+  </md-card-content>
+
+  <md-card-content *ngIf="!swarmPeers">
+    <i>
+      No Peers
+    </i>
+  </md-card-content>
+</md-card>
+
+<!--
+<md-radio-group [(ngModel)]="visible">
+  <md-radio-button *ngFor="let state of buttSwarmPeersvalue]="state">
+    {{ state }}
+  </md-radio-button>
+</md-radio-groupSwarmPeerst *ngIf="swarmPeers">
+  <div *ngpeershowList()">
+    <md-list-item *ngFor="let swarm of swarmPeers.Peers, leSwarmPeer= peerx">
+        Peer address:
+      <button md-raised-button>
+        {{swarSwarmPeerdr}}/ipfs/{{swarm.Peer}}
+      </button>
+    </md-list-item>
+  </div>
+</md-list>
+-->
