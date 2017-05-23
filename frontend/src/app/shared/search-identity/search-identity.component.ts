@@ -3,8 +3,6 @@ import {Identity} from "../../models/identity";
 import {MockDataService} from "../../core/services/mock-data.service";
 import {IdentityService} from "../../core/services/identity.service";
 
-
-
 @Component({
   selector: 'app-search-identity',
   templateUrl: './search-identity.component.html',
@@ -12,17 +10,22 @@ import {IdentityService} from "../../core/services/identity.service";
 export class SearchIdentityComponent implements OnInit {
   public identities: Identity[];
   public useMockData: boolean;
+  public search: any;
 
 
-  constructor(private identity: IdentityService,
-              private mock: MockDataService) {
+  constructor(private identity: IdentityService, private mock: MockDataService) {}
 
-  }
   ngOnInit() {
     this.identity.getIdentities().subscribe(
       (identities) => {
-      this.identities = identities;
-      this.useMockData = false;
+        if (identities.length == 0) {
+          console.warn("No identities in database, using mock data");
+          this.identities = this.mock.generateFakeIdentities();
+          this.useMockData = true;
+        } else {
+          this.identities = identities;
+          this.useMockData = false;
+        }
       }, () => {
       this.identities = this.mock.generateFakeIdentities();
       this.useMockData = true;

@@ -6,19 +6,16 @@ import {Identity} from "../../models/identity";
 
 
 @Component({
-  selector: 'app-ethereum',
-  templateUrl: './ethereum.component.html',
+  selector: 'app-input-identity',
+  templateUrl: './input-identity.component.html',
 })
-export class EthereumComponent implements OnInit {
+export class InputIdentityComponent implements OnInit {
   @ViewChild('fileInput') inputEl: ElementRef;
 
-  constructor(private web3Service: Web3Service,
-              private auth: AuthenticationService,
-              private identity: IdentityService) {
-  }
+  constructor(private web3Service: Web3Service, private identity: IdentityService) { }
 
   ngOnInit() {
-    console.log('Native window obj', window);
+    // console.log('Native window obj', window);
   }
 
   sign(): void {
@@ -33,7 +30,7 @@ export class EthereumComponent implements OnInit {
       let fileCount: number = inputEl.files.length;
       if (fileCount > 0) {
         this.identity.createIdentity(addressTime, result, inputEl.files.item(0)).subscribe((identity: Identity) => {
-
+          console.log("Created identity successfully")
         });
       }
     });

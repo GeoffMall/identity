@@ -1,32 +1,33 @@
-<h1>
-  {{title}}
-</h1>
+<div class="mat-app-background">
+  <h1 class="mat-tab-header">
+    {{title}}
+  </h1>
 
-<md-tab-group>
+  <md-tab-group>
+      <md-tab label="Add">
+        <app-input-identity></app-input-identity>
+      </md-tab>
+
+      <md-tab label="Search">
+        <app-search-identity></app-search-identity>
+      </md-tab>
+
+    <!--
     <md-tab>
       <ng-template md-tab-label>
-        Ethereum
+        Swarm Peers
       </ng-template>
-      <app-ethereum></app-ethereum>
+      <app-swarm-peers></app-swarm-peers>
+    </md-tab>
+    -->
+
+    <md-tab label="Links">
+      <!--TODO add working links -->
+      https://pgp.mit.edu/
     </md-tab>
 
-    <md-tab>
-      <ng-template md-tab-label>
-        Search
-      </ng-template>
-      <app-search-identity></app-search-identity>
-    </md-tab>
-
-  <!--
-  <md-tab>
-    <ng-template md-tab-label>
-      Swarm Peers
-    </ng-template>
-    <app-swarm-peers></app-swarm-peers>
-  </md-tab>
-  -->
-
-</md-tab-group>
+  </md-tab-group>
 
 
 
+</div>

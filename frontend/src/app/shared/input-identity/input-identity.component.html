@@ -1,10 +1,13 @@
 <div class="mat-card">
   <md-card>
     <md-card-content>
-      <input type="file" #fileInput mdTooltip="Upload PGP">
-      <button md-raised-button (click)="sign()" mdTooltip="Must upload pgp to sign">
-        <md-icon>file_upload</md-icon>
-      </button>
+      <input type="file" #fileInput mdTooltip="Upload PGP Here">
+
+      <span mdTooltip="Upload PGP and Sign">
+        <button md-fab (click)="sign()" [disabled]="inputEl.nativeElement.files.length == 0">
+          <md-icon>check</md-icon>
+        </button>
+      </span>
     </md-card-content>
   </md-card>
 </div>

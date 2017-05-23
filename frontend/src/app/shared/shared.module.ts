@@ -5,7 +5,7 @@ import {SwarmPeersComponent} from "./swarm-peers/swarm-peers.component";
 import {FormsModule} from "@angular/forms";
 import {SearchIdentityComponent} from "./search-identity/search-identity.component";
 import {HighlightSearchDirective} from "./highlight-search.directive";
-import {EthereumComponent} from "./ethereum/ethereum.component";
+import {InputIdentityComponent} from "./input-identity/input-identity.component";
 
 @NgModule({
   imports: [
@@ -16,13 +16,13 @@ import {EthereumComponent} from "./ethereum/ethereum.component";
   declarations: [
     SwarmPeersComponent,
     SearchIdentityComponent,
-    EthereumComponent,
+    InputIdentityComponent,
     HighlightSearchDirective
   ],
   exports: [
     SwarmPeersComponent,
     SearchIdentityComponent,
-    EthereumComponent,
+    InputIdentityComponent,
     HighlightSearchDirective
   ]
 })
